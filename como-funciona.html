@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070c19">
+<title>¿Cómo funciona un hogar conectado? | Lares IoT</title>
+<meta name="description" content="Te explicamos paso a paso cómo funciona la domótica de Lares IoT con Google Home y Alexa, sin obras y sin ser experto.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2322D3EE'/><stop offset='.55' stop-color='%233B82F6'/><stop offset='1' stop-color='%238B5CF6'/></linearGradient></defs><rect x='10' y='10' width='68' height='68' rx='18' fill='url(%23g)'/><path d='M32 26 V60 H58' fill='none' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M44 36 L60 24' fill='none' stroke='white' stroke-width='5' stroke-linecap='round'/><circle cx='58' cy='44' r='5' fill='%23F5B544'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#f4f7ff;--muted:#aab7d2;--line:rgba(150,178,230,.24);--card:rgba(20,33,60,.78);--cyan:#31e7f3;--ok:#43e3a5;--amber:#f5b544;
+  color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--ink);font:400 1.02rem/1.6 "Atkinson Hyperlegible",system-ui,sans-serif;
+  background:radial-gradient(ellipse at 85% 0%,rgba(46,70,150,.28),transparent 45%),radial-gradient(ellipse at 0% 100%,rgba(163,77,255,.16),transparent 40%),linear-gradient(160deg,#070c19,#0a1021 60%,#10102a);background-attachment:fixed}
+main{max-width:920px;margin:0 auto;padding:1.1rem clamp(1rem,4vw,2.5rem) 3rem}
+h1,h2,h3{font-family:"Space Grotesk",system-ui,sans-serif;letter-spacing:-.03em;line-height:1.15}
+a{color:var(--cyan)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(150,178,230,.13)}
+.marca{display:flex;align-items:center;gap:.6rem;font:700 1.35rem/1 "Space Grotesk",sans-serif;color:var(--ink);text-decoration:none}
+.marca svg{width:38px;height:38px;filter:drop-shadow(0 0 10px rgba(49,231,243,.3))}
+.marca b{background:linear-gradient(100deg,var(--cyan),#a77aff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill{font:500 .76rem/1 "Space Grotesk",sans-serif;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(49,231,243,.55);border-radius:999px;padding:.6rem .9rem;color:#d8e5ff}
+.hero{padding:2rem 0 .5rem}
+.hero h1{font-size:clamp(2rem,6vw,3.1rem);margin:0 0 .7rem}
+.hero h1 span{color:var(--cyan);text-shadow:0 0 28px rgba(49,231,243,.25)}
+.hero p{color:#bdc9df;max-width:38rem;margin:0}
+section{margin-top:2.5rem}
+h2{font-size:1.5rem;margin:0 0 1rem}
+.flujo{list-style:none;margin:0;padding:0;display:grid;gap:1.75rem;position:relative}
+.flujo li:not(:last-child)::after{content:"";position:absolute;left:39px;top:80px;bottom:-1.75rem;width:2px;background:linear-gradient(180deg,var(--cyan),#a34dff);box-shadow:0 0 10px rgba(49,231,243,.5)}
+.flujo li{display:grid;grid-template-columns:80px 1fr;gap:1.1rem;align-items:start;align-content:start;position:relative}
+.nodo{width:80px;height:80px;border-radius:50%;display:grid;place-items:center;position:relative;z-index:1;color:var(--cyan);
+  background:radial-gradient(circle at 50% 40%,rgba(49,231,243,.22),rgba(12,22,46,.98) 70%);border:2px solid var(--cyan);box-shadow:0 0 26px rgba(49,231,243,.35)}
+.nodo svg{width:38px;height:38px}
+.paso-n{display:block;font:700 .82rem/1 "Space Grotesk",sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin:.35rem 0 .45rem}
+.flujo h3{font-size:1.3rem;margin:0 0 .4rem}
+.flujo p{margin:0;color:#c9d5ea;font-size:1.02rem;line-height:1.65}
+@media(min-width:760px){
+  .flujo{grid-template-columns:repeat(3,1fr);gap:1.5rem}
+  .flujo li:not(:last-child)::after{left:calc(50% + 40px);right:calc(40px - 50% - 1.5rem);top:39px;bottom:auto;width:auto;height:2px;background:linear-gradient(90deg,var(--cyan),#a34dff)}
+  .flujo li{grid-template-columns:1fr;justify-items:center;text-align:center}
+}
+.linea{list-style:none;margin:0;padding:0 0 0 1.6rem;position:relative;border-left:2px solid rgba(49,231,243,.35)}
+.linea li{position:relative;padding:0 0 1.6rem .4rem}
+.linea li:last-child{padding-bottom:0}
+.linea li::before{content:"";position:absolute;left:calc(-1.6rem - 11px);top:.3rem;width:14px;height:14px;border-radius:50%;background:#0a1021;border:3px solid var(--cyan);box-shadow:0 0 12px rgba(49,231,243,.6)}
+.linea time{display:block;font:700 .9rem/1 "Space Grotesk",sans-serif;letter-spacing:.06em;color:var(--cyan);margin-bottom:.4rem}
+.linea b{display:block;font:700 1.15rem/1.3 "Space Grotesk",sans-serif;margin-bottom:.25rem}
+.linea span{display:block;color:#c9d5ea;font-size:1.02rem;line-height:1.6;max-width:36rem}
+.equipos{display:grid;gap:.6rem}
+@media(min-width:760px){.equipos{grid-template-columns:1fr 1fr}}
+.eq{display:flex;gap:.8rem;align-items:flex-start;padding:.9rem 1rem;border-radius:14px;border:1px solid var(--line);background:var(--card)}
+.ico{flex:0 0 54px;height:54px;border-radius:14px;display:grid;place-items:center;background:rgba(49,231,243,.1);border:1px solid rgba(49,231,243,.3);color:var(--cyan)}
+.ico svg{width:30px;height:30px}
+.eq h3{font-size:1.1rem;margin:0 0 .25rem}
+.eq p{margin:0;font-size:1rem;line-height:1.6;color:#c9d5ea}
+.tag{display:inline-block;margin-top:.35rem;font:600 .78rem/1.2 "Space Grotesk",sans-serif;letter-spacing:.07em;text-transform:uppercase;padding:.38rem .6rem;border-radius:6px;background:rgba(67,227,165,.12);color:var(--ok)}
+.tag.el{background:rgba(245,181,68,.12);color:var(--amber)}
+details{border:1px solid var(--line);border-radius:14px;background:rgba(119,150,206,.06);margin-bottom:.6rem}
+summary{cursor:pointer;padding:1rem 1.1rem;font:700 1rem/1.35 "Space Grotesk",sans-serif;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--cyan);font-size:1.3rem;line-height:1}
+details[open] summary::after{content:"−"}
+details p{margin:0;padding:0 1.1rem 1.1rem;color:#c9d5ea;font-size:1.02rem;line-height:1.65}
+.cta-box{margin-top:2.5rem;padding:1.5rem;border-radius:20px;text-align:center;border:1px solid rgba(137,172,231,.38);background:linear-gradient(145deg,rgba(21,36,65,.94),rgba(12,20,39,.95))}
+.cta-box h2{margin-bottom:.4rem}
+.cta-box p{color:#c9d5ea;margin:0 0 1rem}
+.cta{display:inline-flex;align-items:center;justify-content:center;padding:1rem 1.6rem;border-radius:14px;font:700 1.02rem/1 "Space Grotesk",sans-serif;color:#fff;background:linear-gradient(100deg,#12cadf,#7750ee);text-decoration:none;box-shadow:0 8px 24px rgba(61,100,231,.3)}
+:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+footer{margin-top:2rem;font-size:.92rem;color:#91a2c1}
+</style>
+</head>
+<body>
+<main>
+  <header class="top">
+    <a class="marca" href="cotizar.html">
+      <svg viewBox="0 0 88 88" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset=".55" stop-color="#3B82F6"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect x="10" y="10" width="68" height="68" rx="18" fill="url(#lg)"/><path d="M32 26 V60 H58" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M44 36 L60 24" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/><circle cx="58" cy="44" r="5" fill="#F5B544"/></svg>
+      <span>Lares <b>IoT</b></span>
+    </a>
+    <div class="pill">Domótica a tu alcance</div>
+  </header>
+
+  <div class="hero">
+    <h1>¿Cómo funciona un <span>hogar conectado?</span></h1>
+    <p>Sin cables nuevos, sin romper paredes y sin ser experto en tecnología. Nosotros lo instalamos y lo dejamos funcionando; tú solo lo usas.</p>
+  </div>
+
+  <section>
+    <h2>En tres pasos</h2>
+    <ol class="flujo">
+      <li>
+        <div class="nodo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <div><span class="paso-n">Paso 1</span><h3>Instalamos</h3><p>Enroscamos los bombillos, pegamos los sensores y, si lo pides, cambiamos el interior de tus interruptores. Todo en una visita.</p></div>
+      </li>
+      <li>
+        <div class="nodo"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 18.5h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div><span class="paso-n">Paso 2</span><h3>Lo conectamos a tu app</h3><p>Todo queda en la app de Google Home o de Alexa en tu celular. Son gratis, y te la dejamos configurada con tus rutinas.</p></div>
+      </li>
+      <li>
+        <div class="nodo"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c.8-3.5 3.6-5.5 7-5.5s6.2 2 7 5.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <div><span class="paso-n">Paso 3</span><h3>Lo usas como quieras</h3><p>Con un toque en el celular, con la voz si tienes un parlante con asistente, o en automático, sin hacer nada.</p></div>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Un día en tu hogar conectado</h2>
+    <ol class="linea">
+      <li><time>6:30 a. m.</time><b>Con la voz</b><span>“Alexa, enciende la cocina” mientras preparas el café, sin buscar el interruptor.</span></li>
+      <li><time>7:45 a. m.</time><b>Rutina “Me voy”</b><span>Un solo toque al salir apaga luces y enchufes, y te avisa si una puerta o ventana quedó abierta.</span></li>
+      <li><time>10:00 a. m.</time><b>“¿Habré dejado la luz prendida?”</b><span>Lo revisas en el celular desde el trabajo y la apagas desde ahí.</span></li>
+      <li><time>2:00 p. m.</time><b>Una fuga en la cocina</b><span>El sensor detecta agua en el piso y te llega un aviso antes de que el daño crezca.</span></li>
+      <li><time>5:30 p. m.</time><b>Tu mascota sola en casa</b><span>La miras por la cámara y le enciendes una luz cuando empieza a oscurecer.</span></li>
+      <li><time>7:30 p. m.</time><b>Llegas de noche</b><span>La luz de la entrada se enciende antes de que abras la puerta.</span></li>
+    </ol>
+  </section>
+
+  <!-- Espacio reservado: aquí irá una foto real de una instalación piloto de Lares IoT -->
+
+  <section>
+    <h2>Qué hace cada equipo</h2>
+    <div class="equipos">
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Bombillo inteligente</h3><p>Se enciende, se apaga y se regula desde el celular. Se enrosca como uno normal.</p><span class="tag">Sin obra</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="3" width="12" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><rect x="10" y="7" width="4" height="6" rx="1" fill="currentColor"/></svg></div><div><h3>Interruptor inteligente</h3><p>Un módulo pequeño va dentro de tu interruptor: lo sigues usando normal y además desde la app.</p><span class="tag el">Instalación eléctrica · sin romper paredes</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0V8zM12 17v4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><h3>Enchufe inteligente</h3><p>Conectas ahí una lámpara, la plancha o la cafetera, y la apagas a distancia. También mide su consumo.</p><span class="tag">Sin obra</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17M4 21h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="14.5" cy="12" r="1.2" fill="currentColor"/></svg></div><div><h3>Sensor de puerta o ventana</h3><p>Te dice si quedó abierta o cerrada. Se pega con adhesivo y funciona con pila.</p><span class="tag">Sin obra</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div><h3>Sensor de fuga de agua</h3><p>Se pone en el piso de la cocina, el baño o el lavadero, y te avisa si detecta agua.</p><span class="tag">Sin obra</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c1 3 4 4.5 4 8.5a4 4 0 0 1-8 0c0-2 1-3 2-4 0 2 1 3 2 3 0-3-1-5 0-7.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 21h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div><h3>Detector de gas</h3><p>Suena y te avisa al celular si detecta una fuga de gas. Se conecta a un tomacorriente.</p><span class="tag">Sin obra</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16l-2 4H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8 15c1-1 1-2 0-3M12 17c1.2-1.3 1.2-2.7 0-4M16 15c1-1 1-2 0-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div><h3>Detector de humo</h3><p>Suena en casa y te avisa al celular si detecta humo, aunque estés lejos. Funciona con pila y se fija en el techo.</p><span class="tag">Sin obra</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="15.5" r="1.5" fill="currentColor"/></svg></div><div><h3>Chapa inteligente</h3><p>Abres con huella, clave o desde el celular, y le abres a alguien aunque no estés. Además te dice si quedó cerrada. Hay tres niveles para la puerta principal (Esencial, Plus y Premium Yale) y una opción para puertas interiores.</p><span class="tag el">Cambio de chapa · sin romper paredes</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="13" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 11l5-3v8l-5-3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div><h3>Cámara interior</h3><p>Ves tu casa o a tu mascota en vivo desde el celular, estés donde estés.</p><span class="tag">Sin obra</span></div></div>
+      <div class="eq"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg></div><div><h3>Parlante con asistente</h3><p>Opcional. Te permite controlar todo con la voz y, de paso, escuchar música o la radio.</p><span class="tag">Sin obra</span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Preguntas frecuentes</h2>
+    <details><summary>¿Necesito comprar un parlante como Alexa o Google?</summary><p>No. Las apps de Google Home y Alexa son gratis en tu celular, y desde ahí controlas todo. El parlante es opcional: solo suma el control por voz.</p></details>
+    <details><summary>¿Funciona con Google Home y con Alexa?</summary><p>Sí. Los equipos que instalamos son compatibles con las dos. Si aún no usas ninguna, te ayudamos a elegir la que te resulte más cómoda.</p></details>
+    <details><summary>¿Hay que romper paredes?</summary><p>No. Casi todo se enrosca, se enchufa o se pega. Los interruptores inteligentes requieren trabajo eléctrico dentro de la caja del interruptor, pero la pared queda igual.</p></details>
+    <details><summary>¿Qué pasa si se va el internet?</summary><p>Tus luces e interruptores se siguen usando a mano, como siempre. Lo que se pausa es el control desde el celular cuando estás fuera de casa y los avisos; todo vuelve a funcionar cuando regresa el internet.</p></details>
+    <details><summary>¿Y si se va la luz?</summary><p>Cuando vuelve, los equipos se reconectan solos. Los sensores de puerta y de agua funcionan con pila, pero mientras el router de internet esté sin luz no pueden enviarte avisos.</p></details>
+    <details><summary>¿Quién ve mis datos y mis cámaras?</summary><p>Todo queda en tu propia cuenta de Google o de Amazon, a tu nombre. Tú decides quién más tiene acceso.</p></details>
+    <details><summary>¿Tengo que comprar todo de una vez?</summary><p>No. Puedes empezar con un equipo y ampliar cuando quieras. Mientras más equipos tengas, menor es el precio por unidad, y te tenemos en cuenta lo que ya compraste antes.</p></details>
+  </section>
+
+  <div class="cta-box">
+    <h2>¿Listo para empezar?</h2>
+    <p>Arma tu cotización en un par de minutos y te contactamos para agendar la visita.</p>
+    <a class="cta" href="cotizar.html">Armar mi cotización</a>
+  </div>
+
+  <footer>Lares IoT · Domótica a tu alcance</footer>
+</main>
+</body>
+</html>
