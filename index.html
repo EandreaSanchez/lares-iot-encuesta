@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 88 88'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2322D3EE'/><stop offset='.55' stop-color='%233B82F6'/><stop offset='1' stop-color='%238B5CF6'/></linearGradient></defs><rect x='10' y='10' width='68' height='68' rx='18' fill='url(%23g)'/><path d='M32 26 V60 H58' fill='none' stroke='white' stroke-width='8' stroke-linecap='round' stroke-linejoin='round'/><path d='M44 36 L60 24' fill='none' stroke='white' stroke-width='5' stroke-linecap='round'/><circle cx='58' cy='44' r='5' fill='%23F5B544'/></svg>">
+<title>Lares IoT | Domótica a tu alcance</title>
+<meta name="description" content="Encuesta de 5 minutos de Lares IoT sobre tecnología para el hogar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070c19;--panel:rgba(18,29,53,.88);--panel2:rgba(23,37,66,.78);--ink:#f4f7ff;--muted:#aab7d2;--line:rgba(150,178,230,.27);--cyan:#31e7f3;--blue:#16cde2;--violet:#a34dff;--on-blue:#07111f;--led:#31e7f3;--err:#ff9caa;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}*,*::before,*::after{box-sizing:border-box}
+body{margin:0;min-height:100vh;color:var(--ink);font:400 1rem/1.6 "Atkinson Hyperlegible",system-ui,sans-serif;background:radial-gradient(ellipse at 78% 40%,rgba(46,70,150,.23),transparent 38%),radial-gradient(ellipse at 8% 92%,rgba(23,191,226,.12),transparent 31%),linear-gradient(135deg,#070c19,#0a1021 56%,#10102a);}
+main{max-width:1440px;margin:0 auto;padding:1.35rem clamp(1rem,4vw,3.5rem) 2.5rem;min-height:100vh;display:flex;flex-direction:column}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-bottom:1.1rem;border-bottom:1px solid rgba(150,178,230,.13)}
+.marca{display:flex;align-items:center;gap:.65rem;font:700 1.5rem/1 "Space Grotesk",system-ui,sans-serif;letter-spacing:-.04em}.marca svg{display:block;width:42px;height:42px;flex:0 0 auto;filter:drop-shadow(0 0 10px rgba(49,231,243,.24))}.marca b{background:linear-gradient(100deg,var(--cyan),#a77aff);background-clip:text;color:transparent;font-weight:700}
+.eslogan{font:500 .75rem/1.2 "Space Grotesk",system-ui,sans-serif;color:#d8e5ff;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(49,231,243,.6);border-radius:999px;padding:.7rem 1rem;box-shadow:0 0 22px rgba(49,231,243,.09)}
+.layout{flex:1;display:grid;grid-template-columns:minmax(240px,.78fr) minmax(390px,1.08fr) minmax(250px,.82fr);align-items:center;gap:clamp(1rem,2.5vw,2.5rem);padding:clamp(2rem,5vh,4rem) 0}
+.hero{align-self:center;position:relative;z-index:1}.eyebrow{display:flex;align-items:center;gap:.6rem;color:var(--cyan);font:500 .75rem/1.2 "Space Grotesk",system-ui,sans-serif;letter-spacing:.13em;text-transform:uppercase}.eyebrow:before{content:"";width:1.7rem;height:1px;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}
+h1,h2{font-family:"Space Grotesk",system-ui,sans-serif;font-weight:700;letter-spacing:-.045em;line-height:1.08;margin:0}h1{font-size:clamp(2.6rem,4.7vw,4.35rem);margin:1.5rem 0 1rem;max-width:9ch}h1 .accent{color:var(--cyan);text-shadow:0 0 30px rgba(49,231,243,.22)}h2{font-size:1.5rem;margin-bottom:.45rem}
+h1 .led{display:inline-block;width:.24em;height:.24em;border-radius:50%;background:var(--cyan);margin-left:.15em;vertical-align:.18em;box-shadow:0 0 16px var(--cyan);animation:on 1.4s ease .3s both}@keyframes on{0%{opacity:.15}40%{opacity:1}55%{opacity:.35}100%{opacity:1}}@media(prefers-reduced-motion:reduce){h1 .led{animation:none}}
+p{margin:.5rem 0}.hero #intro{max-width:34rem;color:#bdc9df;font-size:1.08rem}.muted{color:var(--muted)}.small{font-size:.9rem}
+.scene{margin-top:1.5rem;width:100%;max-width:370px;overflow:visible}.scene svg{display:block;width:100%;height:auto;filter:drop-shadow(0 14px 32px rgba(17,195,235,.12))}.scene-caption{font:500 .74rem/1.4 "Space Grotesk",system-ui,sans-serif;letter-spacing:.11em;color:#9eafd0;text-transform:uppercase;margin:.2rem 0 0 .3rem}
+.survey{min-width:0;background:linear-gradient(145deg,rgba(21,36,65,.91),rgba(12,20,39,.93));border:1px solid rgba(137,172,231,.38);border-radius:22px;padding:clamp(1.2rem,2.5vw,2rem);box-shadow:0 24px 75px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.06),0 0 45px rgba(44,186,235,.08);backdrop-filter:blur(18px)}
+.progress{display:flex;align-items:center;gap:.8rem;margin:0 0 1.5rem;font:500 .8rem/1 "Space Grotesk",system-ui,sans-serif;color:#d9e8ff}.bar{flex:1;height:5px;background:rgba(181,204,242,.16);border-radius:99px;overflow:hidden}.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--cyan),var(--violet));box-shadow:0 0 13px var(--cyan);transition:width .35s}
+section.step{display:none;background:transparent;border:0;border-radius:0;padding:0}section.step.on{display:block}fieldset{border:0;padding:0;margin:1.25rem 0 0}legend{font-weight:700;margin-bottom:.65rem;padding:0;color:#eaf1ff}.opts{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}.opt{display:flex;gap:.6rem;align-items:flex-start;padding:.85rem .8rem;border:1px solid var(--line);border-radius:12px;background:rgba(119,150,206,.055);cursor:pointer;transition:border-color .15s,background-color .15s,transform .15s}.opt:hover{border-color:rgba(49,231,243,.65);background:rgba(49,231,243,.08);transform:translateY(-1px)}.opt:has(input:checked){border-color:var(--cyan);background:rgba(49,231,243,.12);box-shadow:inset 0 0 18px rgba(49,231,243,.05),0 0 16px rgba(49,231,243,.08)}.opt input{margin-top:.35rem;accent-color:var(--cyan);flex:0 0 auto}
+textarea,input[type=text],input[type=tel]{width:100%;font:inherit;color:var(--ink);background:rgba(5,11,24,.6);border:1px solid var(--line);border-radius:10px;padding:.75rem .85rem}textarea{min-height:5.5rem;resize:vertical}:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.rank{list-style:none;margin:.75rem 0 0;padding:0;display:grid;gap:.5rem}.rank li{display:flex;gap:.6rem;align-items:center;padding:.65rem .7rem;border:1px solid var(--line);border-radius:10px;background:rgba(119,150,206,.055);cursor:grab;user-select:none;-webkit-user-select:none;transition:border-color .2s,box-shadow .2s,background-color .2s,transform .15s}.rank .n{flex:0 0 1.9rem;height:1.9rem;border-radius:8px;display:grid;place-items:center;font:700 .95rem/1 "Space Grotesk",system-ui,sans-serif;background:rgba(181,204,242,.14)}.rank .t{flex:1}.rank .grip{flex:0 0 2.6rem;height:2.6rem;padding:0;border:0;border-radius:8px;background:transparent;color:var(--muted);display:grid;place-items:center;cursor:grab;touch-action:none}.rank .grip svg{width:22px;height:22px}.rank .grip:hover{color:var(--ink);background:rgba(255,255,255,.06)}.rank li.drag{cursor:grabbing;border-color:var(--cyan);background:rgba(49,231,243,.12);box-shadow:0 0 0 1px var(--cyan),0 10px 30px rgba(0,0,0,.45),0 0 22px rgba(49,231,243,.25);transform:scale(1.02);position:relative;z-index:2}.rank li.movida{border-color:var(--cyan);background:rgba(49,231,243,.08)}.rank li.drag .grip,.rank li.movida .grip{color:var(--cyan)}.rank li.drag .n,.rank li.movida .n{background:var(--cyan);color:var(--on-blue)}body.arrastrando{cursor:grabbing;user-select:none;-webkit-user-select:none}
+.nav{display:flex;gap:.75rem;margin-top:1.4rem}.btn{font:700 1rem/1 "Space Grotesk",system-ui,sans-serif;padding:.95rem 1.25rem;border-radius:11px;border:1px solid var(--line);background:rgba(119,150,206,.08);color:var(--ink);cursor:pointer}.btn.main{background:linear-gradient(100deg,#12cadf,#7750ee);border:0;color:#fff;margin-left:auto;min-width:11rem;box-shadow:0 7px 24px rgba(61,100,231,.3)}.btn.main:hover{filter:brightness(1.12)}.btn:disabled{opacity:.6;cursor:wait}.err{color:var(--err);font-size:.95rem;min-height:1.2rem;margin-top:.75rem}
+.metrics{display:grid;gap:.8rem;align-self:center}.metric{border:1px solid rgba(63,202,231,.35);border-radius:13px;background:linear-gradient(120deg,rgba(12,32,56,.8),rgba(18,23,51,.72));padding:.9rem 1rem;box-shadow:inset 0 1px rgba(255,255,255,.04)}.metric-label{display:flex;align-items:center;gap:.55rem;color:#d9e8ff;font:500 .8rem/1.3 "Space Grotesk",system-ui,sans-serif}.metric-label i{width:.5rem;height:.5rem;border-radius:50%;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}.metric-value{font:700 1.3rem/1.2 "Space Grotesk",system-ui,sans-serif;color:var(--cyan);margin-top:.45rem}.metric-note{font-size:.74rem;color:var(--muted)}
+footer{margin-top:auto;padding-top:1rem;display:flex;align-items:center;gap:.55rem;font-size:.82rem;color:#91a2c1;border-top:1px solid rgba(150,178,230,.13)}footer i{width:.5rem;height:.5rem;border-radius:50%;background:var(--cyan);box-shadow:0 0 9px var(--cyan)}
+@media(max-width:1050px){.layout{grid-template-columns:minmax(220px,.8fr) minmax(380px,1.2fr)}.metrics{display:none}.scene{max-width:320px}}
+@media(max-width:680px){main{padding:1rem 1rem 1.5rem}.top{align-items:flex-start;flex-wrap:wrap}.eslogan{font-size:.62rem;padding:.55rem .65rem}.layout{display:flex;flex-direction:column;align-items:stretch;gap:1.35rem;padding:1.6rem 0 1.4rem}.hero{display:grid;grid-template-columns:1fr}.hero h1{font-size:clamp(2.45rem,11vw,3.35rem);max-width:12ch;margin:1rem 0 .7rem}.hero #intro{font-size:.98rem}.scene{display:block;max-width:210px;margin:.65rem auto 0}.scene-caption{text-align:center;font-size:.64rem}.survey{padding:1.15rem;border-radius:17px}.opts{grid-template-columns:1fr 1fr}.opt{font-size:.92rem;padding:.8rem .7rem;min-height:48px}.btn{min-height:48px}.progress{margin-bottom:1.2rem}footer{margin-top:0;align-items:flex-start;flex-wrap:wrap}footer span{margin-left:0!important;width:100%}}
+@media(max-width:390px){main{padding-inline:.85rem}.top{gap:.55rem}.marca{font-size:1.2rem;gap:.45rem}.eslogan{max-width:125px;font-size:.56rem;letter-spacing:.08em;text-align:center}.hero h1{font-size:clamp(2.25rem,10.8vw,2.7rem)}.scene{max-width:185px}.survey{padding:1rem}.opts{grid-template-columns:1fr}.opt{font-size:.95rem;min-height:50px}.nav{gap:.5rem}.btn{padding:.85rem .9rem}.btn.main{min-width:0}}
+</style>
+</head>
+<body>
+<main>
+  <div class="top">
+    <div class="marca">
+      <svg viewBox="0 0 88 88" aria-hidden="true">
+        <defs>
+          <linearGradient id="lg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#22D3EE"/>
+            <stop offset=".55" stop-color="#3B82F6"/>
+            <stop offset="1" stop-color="#8B5CF6"/>
+          </linearGradient>
+        </defs>
+        <rect x="10" y="10" width="68" height="68" rx="18" fill="url(#lg)"/>
+        <path d="M32 26 V60 H58" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M44 36 L60 24" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="58" cy="44" r="5" fill="#F5B544"/>
+      </svg>
+      <span>Lares <b>IoT</b></span>
+    </div>
+    <div class="eslogan">Domótica a tu alcance</div>
+  </div>
+
+  <div class="layout">
+  <div class="hero">
+  <p class="eyebrow">Lares IoT · hogar conectado</p>
+  <h1><span id="hola">Diseñemos juntos</span><br><span class="accent">el hogar del futuro.</span><span class="led" aria-hidden="true"></span></h1>
+  <p id="intro">Ayúdanos a imaginar una tecnología para el hogar que sea útil, sencilla y al alcance de más familias. La encuesta toma unos 5 minutos y no hay respuestas correctas.</p>
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 430 310" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs><linearGradient id="house" x1="72" y1="91" x2="348" y2="272" gradientUnits="userSpaceOnUse"><stop stop-color="#35EAF2" stop-opacity=".21"/><stop offset="1" stop-color="#A24EFF" stop-opacity=".07"/></linearGradient><linearGradient id="line" x1="83" y1="63" x2="354" y2="246" gradientUnits="userSpaceOnUse"><stop stop-color="#3BEAF2"/><stop offset="1" stop-color="#AA68FF"/></linearGradient><filter id="glow" x="0" y="0" width="430" height="310" filterUnits="userSpaceOnUse"><feGaussianBlur stdDeviation="7"/></filter></defs>
+      <path d="M35 254 213 288l184-39-185-42L35 254Z" fill="#0D1D37" stroke="#3B7EAA" stroke-opacity=".52"/>
+      <path d="m91 144 122-81 128 78v104l-128 27-122-27V144Z" fill="url(#house)" stroke="url(#line)" stroke-width="2"/>
+      <path d="m91 144 122 67 128-70M213 211v61" stroke="url(#line)" stroke-width="2"/>
+      <path d="m91 144 122-81 128 78" stroke="url(#line)" stroke-width="3"/>
+      <path d="M122 151v75l69 20v-64l-69-31ZM231 184l82-42v75l-82 18v-51Z" fill="#0C1830" stroke="#55D6ED" stroke-opacity=".7"/>
+      <path d="M144 166v44m22-32v46m83-38 40-20m-40 41 40-9" stroke="#6DEBFA" stroke-opacity=".7" stroke-width="2"/>
+      <path d="M211 119c-9-9-24-9-33 0m42-12c-14-14-37-14-51 0m60-12c-19-19-50-19-69 0" stroke="#38EAF2" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="212" cy="126" r="4" fill="#38EAF2"/>
+      <path d="M91 151 213 70l128 77" stroke="#34E7F0" stroke-width="5" stroke-linecap="round" opacity=".46" filter="url(#glow)"/>
+      <rect x="36" y="83" width="50" height="42" rx="11" fill="#101D38" stroke="#43CDE5"/><path d="M60 94v16m-7-7h14" stroke="#58EAF4" stroke-width="2" stroke-linecap="round"/><circle cx="60" cy="104" r="15" stroke="#3FE5EF" stroke-opacity=".4"/>
+      <rect x="343" y="87" width="55" height="42" rx="11" fill="#101D38" stroke="#8B68F5"/><path d="M360 101h20v13h-20zM364 101v-4h12v4" stroke="#B895FF" stroke-width="2" stroke-linejoin="round"/><path d="M368 110h4" stroke="#B895FF" stroke-width="2" stroke-linecap="round"/>
+      <path d="M86 104h26v26m231-23h-24v27" stroke="#49DFF0" stroke-opacity=".65" stroke-dasharray="4 5"/>
+      <circle cx="115" cy="132" r="3" fill="#4BE5F0"/><circle cx="319" cy="134" r="3" fill="#B171FF"/>
+    </svg>
+    <p class="scene-caption">Tecnología que conecta lo cotidiano</p>
+  </div>
+  </div>
+  <div class="survey">
+  <div class="progress"><span id="pasoTxt"></span><div class="bar"><span id="barra"></span></div></div>
+
+  <form id="f" novalidate onsubmit="return false">
+    <label class="hp" aria-hidden="true">Sitio web <input type="text" id="web" tabindex="-1" autocomplete="off"></label>
+
+    <section class="step" data-step="0">
+      <h2>Antes de empezar</h2>
+      <fieldset><legend><label for="nombre">¿Cómo te llamas?</label></legend><input type="text" id="nombre" autocomplete="given-name"></fieldset>
+    </section>
+
+    <section class="step" data-step="1">
+      <h2>Tu casa hoy</h2>
+      <fieldset><legend>¿Dónde vives?</legend><div class="opts">
+        <label class="opt"><input type="radio" name="vivienda" value="Apartamento"> Apartamento</label>
+        <label class="opt"><input type="radio" name="vivienda" value="Casa"> Casa</label>
+      </div></fieldset>
+      <fieldset><legend>¿Qué tienes ya en casa? <span class="muted small">(puedes marcar varias)</span></legend><div class="opts">
+        <label class="opt"><input type="checkbox" name="tiene" value="Asistente de voz"> Asistente de voz (Alexa, Google)</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Bombillos o enchufes inteligentes"> Bombillos o enchufes inteligentes</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Parlantes Bluetooth o Wi-Fi"> Parlantes Bluetooth o Wi-Fi</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Cámaras o timbre con video"> Cámaras o timbre con video</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Chapa o cerradura inteligente"> Chapa o cerradura inteligente</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Sensores de fuga de agua o gas"> Sensores de fuga de agua o gas</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Sensores de puertas, ventanas o movimiento"> Sensores de puertas, ventanas o movimiento</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Aire, ventilador o termostato inteligente"> Aire, ventilador o termostato inteligente</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Cortinas o persianas motorizadas"> Cortinas o persianas motorizadas</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Otro" id="tieneOtro"> Otro</label>
+        <label class="opt"><input type="checkbox" name="tiene" value="Nada de esto" id="tieneNada"> Nada de esto</label>
+      </div>
+      <input type="text" id="tieneOtroTxt" placeholder="¿Qué otro dispositivo tienes?" style="display:none;margin-top:.65rem" aria-label="Otro dispositivo que tienes">
+      </fieldset>
+      <fieldset><legend><label for="preocupa">¿Qué te preocupa de tu casa cuando no estás?</label></legend><textarea id="preocupa"></textarea></fieldset>
+      <fieldset><legend><label for="intento">¿Has comprado algo para que tu casa sea más cómoda o segura? ¿Qué fue y lo sigues usando?</label></legend><textarea id="intento"></textarea></fieldset>
+    </section>
+
+    <section class="step" data-step="2">
+      <h2>Imagina estas situaciones</h2>
+      <p class="muted">Arrástralas desde ⠿ para ordenarlas: arriba la que más te ayudaría, abajo la que menos.</p>
+      <ol class="rank" id="rank"></ol>
+      <fieldset><legend><label for="porque">¿Por qué elegiste la primera?</label></legend><textarea id="porque"></textarea></fieldset>
+    </section>
+
+    <section class="step" data-step="3">
+      <h2>Si existiera</h2>
+      <fieldset><legend>Si tu primera opción tuviera un precio razonable, ¿qué tan probable es que la instalaras en los próximos 3 meses?</legend><div class="opts">
+        <label class="opt"><input type="radio" name="probabilidad" value="Muy probable"> Muy probable</label>
+        <label class="opt"><input type="radio" name="probabilidad" value="Tal vez"> Tal vez</label>
+        <label class="opt"><input type="radio" name="probabilidad" value="Poco probable"> Poco probable</label>
+      </div></fieldset>
+      <fieldset><legend>¿Cuánto pagarías por esa primera solución, instalada?</legend><div class="opts">
+        <label class="opt"><input type="radio" name="presupuesto" value="Menos de $500.000"> Menos de $500.000</label>
+        <label class="opt"><input type="radio" name="presupuesto" value="$500.000 a $1.500.000"> $500.000 a $1.500.000</label>
+        <label class="opt"><input type="radio" name="presupuesto" value="$1.500.000 a $3.000.000"> $1.500.000 a $3.000.000</label>
+        <label class="opt"><input type="radio" name="presupuesto" value="Más de $3.000.000"> Más de $3.000.000</label>
+      </div></fieldset>
+      <fieldset><legend>¿Quién más decide este tipo de compras en tu casa?</legend><div class="opts">
+        <label class="opt"><input type="radio" name="decide" value="Solo yo"> Solo yo</label>
+        <label class="opt"><input type="radio" name="decide" value="En pareja"> En pareja</label>
+        <label class="opt"><input type="radio" name="decide" value="En familia"> En familia</label>
+      </div></fieldset>
+    </section>
+
+    <section class="step" data-step="4">
+      <h2>Último paso</h2>
+      <fieldset><legend>¿Te gustaría conversar 20 minutos o recibir una visita para ver opciones en tu casa?</legend><div class="opts">
+        <label class="opt"><input type="radio" name="seguir" value="Conversación"> Sí, una conversación</label>
+        <label class="opt"><input type="radio" name="seguir" value="Visita"> Sí, una visita</label>
+        <label class="opt"><input type="radio" name="seguir" value="No por ahora"> No por ahora</label>
+      </div></fieldset>
+      <fieldset><legend><label for="cel">Celular <span class="muted small" id="celNota">(opcional)</span></label></legend><input type="tel" id="cel" autocomplete="tel" inputmode="numeric" maxlength="10" placeholder="3001234567">
+        <p class="muted small">Solo números, 10 dígitos. Lares IoT solo lo usará para contactarte sobre este proyecto.</p></fieldset>
+    </section>
+
+    <section class="step" data-step="5">
+      <h2>¡Gracias!</h2>
+      <p>Tus respuestas quedaron guardadas. Nos ayudan mucho a construir Lares IoT.</p>
+    </section>
+
+    <p class="err" id="err" aria-live="polite"></p>
+    <div class="nav" id="nav">
+      <button type="button" class="btn" id="atras">Atrás</button>
+      <button type="button" class="btn main" id="sig">Siguiente</button>
+    </div>
+  </form>
+  </div>
+  <aside class="metrics" aria-label="Beneficios de un hogar conectado">
+    <div class="metric"><div class="metric-label"><i></i>Hogar inteligente</div><div class="metric-value">Conectado</div><div class="metric-note">Soluciones pensadas para tu día a día</div></div>
+    <div class="metric"><div class="metric-label"><i></i>Control sencillo</div><div class="metric-value">A tu ritmo</div><div class="metric-note">La tecnología se adapta a tu hogar</div></div>
+    <div class="metric"><div class="metric-label"><i></i>Diseñado contigo</div><div class="metric-value">Tu opinión cuenta</div><div class="metric-note">Ayúdanos a elegir qué construir</div></div>
+  </aside>
+  </div>
+  <footer><i aria-hidden="true"></i>Lares IoT · Domótica a tu alcance <span style="margin-left:auto">Tus respuestas se usan para este estudio</span></footer>
+</main>
+<script>
+// Pega aquí la URL de tu Apps Script (termina en /exec)
+const ENDPOINT = "https://script.google.com/macros/s/AKfycbxbT7ndLNa4D8re_J5_3O4AfukdOx0Hdj2GPBlKs0DyjT9YEaLCB_ZkQgOOH1vaPGSKWw/exec";
+
+const ESCENARIOS = [
+  "Llegas a casa y la canción que venías oyendo en el carro sigue sonando en la sala.",
+  "En una reunión, la música suena en la sala y la terraza, y la controlas desde el celular.",
+  "Mientras cocinas en la mañana, la radio se enciende sola en la cocina.",
+  "Cuando vas llegando, se enciende la luz de afuera.",
+  "Te llega un aviso al celular: hay una fuga de agua en la cocina.",
+  "Le abres la puerta a un familiar desde la oficina.",
+  "Al salir, un solo botón apaga todo y te confirma que la casa quedó cerrada."
+];
+const TOTAL = 4;
+let paso = 0;
+let orden = ESCENARIOS.map((_, i) => i).sort(() => Math.random() - .5);
+const $ = id => document.getElementById(id);
+
+// URL personalizada: tudominio.co/maria-jose  (también acepta ?n=maria-jose)
+const crudo = decodeURIComponent(location.pathname.replace(/^\/+|\/+$/g, "")) || new URLSearchParams(location.search).get("n") || "";
+const slug = /^[A-Za-z0-9-]{1,40}$/.test(crudo) && crudo !== "index.html" ? crudo : "";
+const nombreSlug = slug.split("-").filter(Boolean).map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(" ");
+const INICIO = nombreSlug ? 1 : 0;   // con nombre en el link se salta la pregunta
+function saludar(n) { $("hola").textContent = n ? `Hola, ${n}` : "Hola"; }
+if (nombreSlug) { $("nombre").value = nombreSlug; saludar(nombreSlug); paso = 1; }
+
+// Ranking: se ordena arrastrando desde el agarre (o con flechas del teclado)
+const GRIP = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="9" cy="6" r="1.7"/><circle cx="15" cy="6" r="1.7"/><circle cx="9" cy="12" r="1.7"/><circle cx="15" cy="12" r="1.7"/><circle cx="9" cy="18" r="1.7"/><circle cx="15" cy="18" r="1.7"/></svg>';
+function pintarRanking() {
+  const ol = $("rank"); ol.innerHTML = "";
+  orden.forEach(idx => {
+    const li = document.createElement("li");
+    li.dataset.idx = idx;
+    li.innerHTML = '<span class="n"></span><span class="t"></span><button type="button" class="grip">' + GRIP + '</button>';
+    li.querySelector(".t").textContent = ESCENARIOS[idx];
+    const grip = li.querySelector(".grip");
+    grip.setAttribute("aria-label", "Mover: " + ESCENARIOS[idx] + ". Usa las flechas arriba y abajo del teclado.");
+    grip.addEventListener("pointerdown", e => arrastrar(e, li));
+    li.addEventListener("pointerdown", e => { if (e.pointerType === "mouse" && !e.target.closest(".grip")) arrastrar(e, li); });
+    grip.addEventListener("keydown", e => {
+      if (e.key !== "ArrowUp" && e.key !== "ArrowDown") return;
+      e.preventDefault();
+      const otro = e.key === "ArrowUp" ? li.previousElementSibling : li.nextElementSibling;
+      if (!otro) return;
+      e.key === "ArrowUp" ? otro.before(li) : otro.after(li);
+      grip.focus(); marcar(li); sincronizar();
+    });
+    ol.append(li);
+  });
+  numerar();
+}
+function numerar() { [...$("rank").children].forEach((li, i) => li.querySelector(".n").textContent = i + 1); }
+function sincronizar() { orden = [...$("rank").children].map(li => +li.dataset.idx); numerar(); }
+function marcar(li) {
+  document.querySelectorAll("#rank li.movida").forEach(x => x.classList.remove("movida"));
+  li.classList.add("movida");
+}
+function arrastrar(e, li) {
+  if (e.button && e.button !== 0) return;
+  e.preventDefault();
+  const ol = $("rank");
+  li.classList.add("drag"); document.body.classList.add("arrastrando");
+  const mover = ev => {
+    const y = ev.clientY;
+    for (const otro of ol.children) {
+      if (otro === li) continue;
+      const r = otro.getBoundingClientRect();
+      if (y > r.top && y < r.bottom) {
+        const hijos = [...ol.children];
+        hijos.indexOf(otro) > hijos.indexOf(li) ? otro.after(li) : otro.before(li);
+        numerar();
+        break;
+      }
+    }
+    if (y < 70) window.scrollBy(0, -10);
+    else if (y > window.innerHeight - 70) window.scrollBy(0, 10);
+  };
+  const soltar = () => {
+    li.classList.remove("drag"); document.body.classList.remove("arrastrando");
+    window.removeEventListener("pointermove", mover);
+    window.removeEventListener("pointerup", soltar);
+    window.removeEventListener("pointercancel", soltar);
+    marcar(li); sincronizar();
+  };
+  window.addEventListener("pointermove", mover);
+  window.addEventListener("pointerup", soltar);
+  window.addEventListener("pointercancel", soltar);
+}
+pintarRanking();
+
+const f = $("f");
+const val = n => (f.querySelector(`[name="${n}"]:checked`) || {}).value || "";
+const vals = n => [...f.querySelectorAll(`[name="${n}"]:checked`)].map(i => i.value).join(", ");
+const txt = id => $(id).value.trim();
+
+// "Nada de esto" excluye las demás; "Otro" muestra un campo para escribir
+f.querySelectorAll('[name="tiene"]').forEach(cb => cb.addEventListener("change", () => {
+  if (cb.checked && cb.id === "tieneNada") f.querySelectorAll('[name="tiene"]').forEach(o => { if (o !== cb) o.checked = false; });
+  if (cb.checked && cb.id !== "tieneNada") $("tieneNada").checked = false;
+  const otro = $("tieneOtro").checked;
+  $("tieneOtroTxt").style.display = otro ? "block" : "none";
+  if (otro && cb.id === "tieneOtro") $("tieneOtroTxt").focus();
+}));
+function tieneTexto() {
+  return [...f.querySelectorAll('[name="tiene"]:checked')]
+    .map(i => i.id === "tieneOtro" ? "Otro: " + (txt("tieneOtroTxt") || "sin especificar") : i.value).join(", ");
+}
+
+// Todas las preguntas son obligatorias; el celular, solo si pide conversación o visita
+const quiereContacto = () => val("seguir") && val("seguir") !== "No por ahora";
+function validar() {
+  if (paso === 0 && !txt("nombre")) return "Escribe tu nombre para continuar.";
+  if (paso === 1) {
+    if (!val("vivienda")) return "Elige si vives en apartamento o casa.";
+    if (!vals("tiene")) return "Marca qué tienes en casa (o «Nada de esto»).";
+    if ($("tieneOtro").checked && !txt("tieneOtroTxt")) return "Escribe qué otro dispositivo tienes.";
+    if (!txt("preocupa")) return "Cuéntanos qué te preocupa de tu casa cuando no estás.";
+    if (!txt("intento")) return "Cuéntanos si has comprado algo para tu casa (si no, escribe «No»).";
+  }
+  if (paso === 2 && !txt("porque")) return "Cuéntanos por qué elegiste la primera.";
+  if (paso === 3) {
+    if (!val("probabilidad")) return "Elige qué tan probable es que la instalaras.";
+    if (!val("presupuesto")) return "Elige cuánto pagarías.";
+    if (!val("decide")) return "Elige quién más decide este tipo de compras.";
+  }
+  if (paso === 4) {
+    if (!val("seguir")) return "Elige si te gustaría conversar o no.";
+    const cel = txt("cel");
+    if (quiereContacto() && !cel) return "Escribe tu celular para poder contactarte.";
+    if (cel && !/^3\d{9}$/.test(cel)) return "El celular debe tener 10 dígitos y empezar por 3.";
+  }
+  return "";
+}
+// Celular: solo números, máximo 10
+$("cel").addEventListener("input", e => { e.target.value = e.target.value.replace(/\D/g, "").slice(0, 10); });
+f.addEventListener("change", e => {
+  if (e.target.name === "seguir") $("celNota").textContent = quiereContacto() ? "(obligatorio)" : "(opcional)";
+});
+function mostrar() {
+  document.querySelectorAll(".step").forEach(s => s.classList.toggle("on", +s.dataset.step === paso));
+  const fin = paso > TOTAL;
+  $("atras").style.visibility = paso > INICIO && !fin ? "visible" : "hidden";
+  $("sig").textContent = paso === TOTAL ? "Enviar respuestas" : "Siguiente";
+  $("nav").style.display = fin ? "none" : "flex";
+  $("intro").style.display = paso === INICIO ? "block" : "none";
+  $("pasoTxt").textContent = fin ? "Listo" : paso === 0 ? "Inicio" : `Paso ${paso} de ${TOTAL}`;
+  $("barra").style.width = (fin ? 100 : paso / TOTAL * 100) + "%";
+  $("err").textContent = "";
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+async function enviar() {
+  const btn = $("sig");
+  btn.disabled = true; btn.textContent = "Enviando…";
+  const datos = {
+    web: $("web").value, slug, nombre: txt("nombre"), vivienda: val("vivienda"), tiene: tieneTexto(),
+    preocupa: txt("preocupa"), intento: txt("intento"), orden, porque: txt("porque"),
+    probabilidad: val("probabilidad"), presupuesto: val("presupuesto"), decide: val("decide"),
+    seguir: val("seguir"), cel: txt("cel")
+  };
+  try {
+    // text/plain evita la verificación CORS previa que Apps Script no responde
+    await fetch(ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(datos) });
+    paso++; mostrar();
+  } catch {
+    btn.disabled = false; btn.textContent = "Enviar respuestas";
+    $("err").textContent = "No se pudieron enviar las respuestas. Revisa tu conexión e intenta de nuevo.";
+  }
+}
+$("sig").onclick = () => {
+  const e = validar();
+  if (e) { $("err").textContent = e; return; }
+  if (paso === TOTAL) return enviar();
+  if (paso === 0) saludar(txt("nombre").split(/\s+/)[0]);
+  paso++; mostrar();
+};
+$("atras").onclick = () => { if (paso > INICIO) { paso--; mostrar(); } };
+mostrar();
+</script>
+</body>
+</html>
